@@ -1,9 +1,12 @@
 import type { Component } from 'solid-js';
+import { MainMenu } from './pages/main-menu';
 
 const App: Component = () => {
-  return (
-    <p class="text-4xl text-green-700 text-center py-20">Hello tailwind!</p>
-  );
+  return <div class='flex justify-center bg-blue-200'>
+      <div class='max-w-lg w-full h-screen'>
+      <MainMenu/>
+      </div>
+  </div>
 };
 
 export default App;
