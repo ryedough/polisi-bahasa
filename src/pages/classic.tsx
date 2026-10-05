@@ -61,7 +61,7 @@ export const Classic = () => {
     const [score, setScore] = createSignal<number>(0);
     const [totalQuestion, setTotalQuestion] = createSignal<number>(0);
     const [gameOver, setGameOver] = createSignal(false);
-    const questions = getQuestions(3);
+    const questions = getQuestions(10);
     let questionIdx = -1;
 
     onMount(async () => {

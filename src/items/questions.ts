@@ -51,27 +51,147 @@ export function getQuestions(n : number) {
 
 const masterQuestion : Question[] = [
     createQuestion(
-        "Atas perhatian Bapak, Saya ucapkan terima kasih.",
-        "Atas perhatian Bapak, Saya ucapkan terima kasih.",
-        "Atas perhatian Bapak, saya ucapkan terima kasih.",
-        "Atas perhatian Bapak, diucapkan terima kasih.",
-        "Atas perhatian Bapak, diucapkan terima kasih.",
-        "b"
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
     ),
     createQuestion(
-        "Tidak semua orang berbakat menjadi pemimpin,” ujar Presiden.",
-        "bruh",
-        "bruh",
-        "bruh",
-        "bruh",
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
+    ),
+    createQuestion(
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
+    ),
+    createQuestion(
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
+    ),
+    createQuestion(
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
+    ),
+    createQuestion(
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
+    ),
+    createQuestion(
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
+    ),
+    createQuestion(
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
+    ),
+    createQuestion(
+        "Placeholder question",
+        "right",
+        "wrong",
+        "wrong",
+        "wrong",
+        "a"
+    ),
+    createQuestion(
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
         null
     ),
     createQuestion(
-        "ble ble ble blu blu blu",
-        "Atas perhatian Bapak, Saya ucapkan terima kasih.",
-        "Atas perhatian Bapak, saya ucapkan terima kasih.",
-        "Atas perhatian Bapak, diucapkan terima kasih.",
-        "Atas perhatian Bapak, diucapkan terima kasih.",
-        "a"
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
+        null
+    ),
+    createQuestion(
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
+        null
+    ),
+    createQuestion(
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
+        null
+    ),
+    createQuestion(
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
+        null
+    ),
+    createQuestion(
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
+        null
+    ),
+    createQuestion(
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
+        null
+    ),
+    createQuestion(
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
+        null
+    ),
+    createQuestion(
+        "Placeholder question",
+        "wrong",
+        "wrong",
+        "wrong",
+        "wrong",
+        null
     ),
 ];
