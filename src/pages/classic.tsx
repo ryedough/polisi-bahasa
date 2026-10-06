@@ -1,8 +1,8 @@
 import { Accessor, batch, children, createEffect, createMemo, createSignal, For, on, onMount, Show, useContext } from "solid-js"
 import { createStore } from "solid-js/store"
-import Arrest from "../assets/arrest.png"
-import LetgoGift from "../assets/gift.jpg"
-import LetgoWanted from "../assets/wanted.jpg"
+import CopArrest from "../assets/cop-arrest.png"
+import CopLetgoGift from "../assets/gift.jpg"
+import CopLetgoWanted from "../assets/wanted.jpg"
 import CopExplain from "../assets/cop-explain.png"
 import CopIdle from "../assets/cop-idle.png"
 import CopLetgo from "../assets/cop-letgo.png"
@@ -12,7 +12,7 @@ import CopWonder from "../assets/cop-wonder.png"
 import DudeHappy from "../assets/dude-happy.png"
 import DudeScared from "../assets/dude-scared.png"
 import DudeTalking from "../assets/dude-talking.png"
-import GameBg from "../assets/game-bg.jpg"
+import BgCityDay from "../assets/city-day.jpg"
 import GavelBlock from "../assets/gavel-block.png"
 import Gavel from "../assets/gavel.png"
 import Heart from "../assets/heart.png"
@@ -158,7 +158,7 @@ export const Classic = () => {
         setChoiceId(idx);
         await setRightChar({ overridePrevExitClass: "fade-out-left" });
         await delay(100);
-        await setLeftChar({ enterClass: "fade-in-right", src: Arrest, exitClass: "fade-out-left" });
+        await setLeftChar({ enterClass: "fade-in-right", src: CopArrest, exitClass: "fade-out-left" });
         await delay(300);
         await setLeftChar({});
         await delay(300);
@@ -195,41 +195,13 @@ export const Classic = () => {
             <GameOver score={score} onMenuClick={backToMenu} totalQuestion={totalQuestion} />
         </Show>
 
-        <div class={"absolute left-0 top-0 w-full h-full transition-opacity duration-300 z-3 bg-black " + (showLetgoStatus()? "opacity-50" : "opacity-0 pointer-events-none")}></div>
-        <div class={"absolute flex flex-col justify-center left-0 top-0 w-full h-full transition-opacity duration-300 px-3 z-4 " + (showLetgoStatus()? "opacity-100" : "opacity-0 pointer-events-none")}>
-            <div class={"px-2 py-5 text-2xl font-medium flex flex-col gap-4 items-center border-2 rounded-lg text-white " + (letgoStatus() ? "bg-green-600 border-green-800" : "bg-red-600 border-red-800")}>
-                {letgoStatus() ?
-                    <>
-                        <img src={LetgoGift} class="h-80 rounded-md"/>
-                        <div class="text-center">Keputusan anda benar</div>
-                    </> :
-                    <>
-                        <img src={LetgoWanted} class="transform rotate-6 h-80 rounded-sm"/>
-                        <div class="text-center">Anda membiarkan buronan lolos</div>
-                    </> }
-            </div>
-        </div>
+        <LetgoResult letgoStatus={letgoStatus} showLetgoStatus={showLetgoStatus}/>
 
-        <div class={"transform -translate-y-1/2 -translate-x-1/2 absolute top-1/2 left-1/2 w-82 h-82 lg:w-96 lg:h-96 rounded-full z-4 transition-all duration-200 pointer-events-none "
-            + (status() === 'not-guilty' ? "bg-red-500" : status() === "guilty" ? "bg-green-500" : status() === "wrong-charge" ? "bg-orange-400" : "scale-0 opacity-0")}></div>
-        <div class="transform -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-5 pointer-events-none">
-            <div class={"relative transition-opacity duration-500 " + (status() ? "opacity-100" : "opacity-0 pointer-events-none")}>
-                <AnimatedDiv runAnimation={statusExist} animationClass="gavel" onAnimationDone={() => { gavelAnim.resolve() }}>
-                    <img src={Gavel} class="transform translate-x-18" alt="" />
-                </AnimatedDiv>
-                <img src={GavelBlock} alt="" />
-                <div class="absolute top-full flex flex-col gap-2 w-full text-center">
-                    <div class={"text-2xl font-bold text-white mt-2 transform transition-all duration-200 delay-200 " + (status() !== "pending" ? "opacity-100" : "opacity-0 translate-y-10")}>
-                        {status() === "guilty" ? "Tuduhan benar" : status() === "not-guilty" ? "Salah tangkap" : status() === "wrong-charge" ? "Tuduhan salah" : ""}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class={"absolute w-full h-full z-3 bg-black transition-opacity duration-300 " + (status() ? "opacity-50" : "opacity-0 pointer-events-none")}></div>
+        <ArrestResult onGavelAnimDone={()=>gavelAnim.resolve()} status={status} statusExist={statusExist}/>
 
         <div class="absolute w-full h-full z-1 overflow-hidden bg-black opacity-30" />
         <div class="absolute w-full h-full z-0 overflow-hidden">
-            <img src={GameBg} class="w-full h-full object-cover" alt="" />
+            <img src={BgCityDay} class="w-full h-full object-cover" alt="" />
         </div>
         <div class="flex flex-col p-3 relative z-2 h-full">
             <div class="flex justify-between">
@@ -248,9 +220,10 @@ export const Classic = () => {
                 </div>
             </div>
             <div class="grow"></div>
+
             <div class="bg-blue-500/80 border-2 border-yellow-300 h-1/2 rounded-lg relative" >
                 <div class="absolute bottom-[calc(100%+2px)] w-full">
-                    <div class="flex justify-between h-52">
+                    <div class="flex justify-between h-40 lg:h-52">
                         <GameChar character={leftChar} onAnimationDone={() => leftCharAnim.resolve()} />
                         <GameChar character={rightChar} onAnimationDone={() => rightCharAnim.resolve()} />
                     </div>
@@ -306,6 +279,72 @@ export const Classic = () => {
             </div>
         </div>
     </div>
+}
+
+interface ArrestResultProps {
+    status : Accessor<"not-guilty" | "wrong-charge" | "guilty" | "pending" | null>,
+    statusExist : Accessor<boolean>,
+    onGavelAnimDone : ()=>void
+}
+const ArrestResult = (props : ArrestResultProps)=>{
+    return <>
+        <div class={"transform -translate-y-1/2 -translate-x-1/2 absolute top-1/2 left-1/2 w-82 h-82 lg:w-96 lg:h-96 rounded-full z-4 transition-all duration-200 pointer-events-none "
+            + (props.status() === 'not-guilty' ? "bg-red-500" : props.status() === "guilty" ? "bg-green-500" : props.status() === "wrong-charge" ? "bg-orange-400" : "scale-0 opacity-0")}></div>
+        <div class="transform -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 z-5 pointer-events-none">
+            <div class={"relative transition-opacity duration-500 " + (props.status() ? "opacity-100" : "opacity-0 pointer-events-none")}>
+                <AnimatedDiv runAnimation={props.statusExist} animationClass="gavel" onAnimationDone={() => { props.onGavelAnimDone() }}>
+                    <img src={Gavel} class="transform translate-x-12 lg:translate-x-18" alt="" />
+                </AnimatedDiv>
+                <img src={GavelBlock} alt="" />
+                <div class="absolute top-full flex flex-col gap-2 w-full text-center">
+                    <div class={"text-2xl font-bold text-white mt-2 transform transition-all duration-200 delay-200 " + (props.status() !== "pending" ? "opacity-100" : "opacity-0 translate-y-10")}>
+                        {props.status() === "guilty" ? "Tuduhan benar" : props.status() === "not-guilty" ? "Salah tangkap" : props.status() === "wrong-charge" ? "Tuduhan salah" : ""}
+                    </div>
+                    <div class={"transform transition-all p-2 mt-10 border-2 text-white text-xl flex gap-2 items-center justify-center rounded-lg "
+                        + (props.status() === 'not-guilty' ? "bg-red-500 border-red-800" : props.status() === "guilty" ? "bg-green-500 border-green-800" : "translate-Y-10 opacity-0")}>
+                        {props.status() === "guilty"
+                            ? <div>Skor +1</ div>
+                            : props.status() === "not-guilty"
+                                ? <><img src={Heart} class="w-6"/><div>-1</div></>
+                                : ""}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class={"absolute w-full h-full z-3 bg-black transition-opacity duration-300 " + (props.status() ? "opacity-50" : "opacity-0 pointer-events-none")}></div>
+    </>
+}
+
+interface LetgoResultProps {
+    showLetgoStatus : Accessor<boolean>,
+    letgoStatus : Accessor<boolean | null>,
+}
+
+const LetgoResult =  (props : LetgoResultProps) => {
+    return <>
+        <div class={"absolute left-0 top-0 w-full h-full transition-opacity duration-300 z-3 bg-black " + (props.showLetgoStatus()? "opacity-50" : "opacity-0 pointer-events-none")}></div>
+        <div class={"absolute flex flex-col justify-center left-0 top-0 w-full gap-5 h-full transition-opacity duration-300 px-3 z-4 " + (props.showLetgoStatus()? "opacity-100" : "opacity-0 pointer-events-none")}>
+            <div class={"px-2 py-5 text-2xl font-medium flex flex-col gap-4 items-center border-2 rounded-lg text-white " + (props.letgoStatus() ? "bg-green-500 border-green-800" : "bg-red-500 border-red-800")}>
+                {props.letgoStatus() ?
+                    <>
+                        <img src={CopLetgoGift} class="h-80 rounded-md"/>
+                        <div class="text-center">Keputusan anda benar</div>
+                    </> :
+                    <>
+                        <img src={CopLetgoWanted} class="transform rotate-6 h-80 rounded-sm"/>
+                        <div class="text-center">Anda membiarkan buronan lolos</div>
+                    </> }
+            </div>
+            <div class={"transform transition-all p-2 border-2 text-white text-xl flex gap-2 items-center justify-center rounded-lg "
+                + (props.letgoStatus() === false ? "bg-red-500 border-red-800" : props.letgoStatus() === true ? "bg-green-500 border-green-800" : "translate-Y-10 opacity-0")}>
+                {props.letgoStatus() === true
+                    ? <div>Skor +1</ div>
+                    : props.letgoStatus() === false
+                        ? <><img src={Heart} class="w-6"/><div>-1</div></>
+                        : ""}
+            </div>
+        </div>
+    </>
 }
 
 interface GameOverProps {

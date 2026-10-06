@@ -51,147 +51,123 @@ export function getQuestions(n : number) {
 
 const masterQuestion : Question[] = [
     createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
+        "Praktek",
+        "Praktekh",
+        "Prakteg",
+        "Praktik",
+        "Praktekkan",
+        "c"
     ),
     createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
+        "Resiko",
+        "Resikho",
+        "Riziko",
+        "Resikko",
+        "Risiko",
+        "d"
     ),
     createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
-    ),
-    createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
-    ),
-    createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
-    ),
-    createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
-    ),
-    createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
-    ),
-    createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
-    ),
-    createQuestion(
-        "Placeholder question",
-        "right",
-        "wrong",
-        "wrong",
-        "wrong",
-        "a"
-    ),
-    createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
+        "Pada hari Senin, kami mengikuti upacara.",
+        "Pada hari senin, kami mengikuti upacara.",
+        "Pada Hari Senin, kami mengikuti upacara.",
+        "Pada hari senin, Kami mengikuti upacara.",
+        "Pada Hari senin, kami mengikuti upacara.",
         null
     ),
     createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
+        "Ia Beragama Islam.",
+        "Ia beragama ISLAM.",
+        "Ia Beragama islam.",
+        "Ia beragama islam.",
+        "Ia beragama Islam.",
+        "d"
+    ),
+    createQuestion(
+        "Mahasiswa tersebut berdiskusi didalam ruang laboratorium.",
+        "Mahasiswa tersebut berdiskusi di-dalam ruang laboratorium.",
+        "Mahasiswa tersebut berdiskusi di dalam ruang laboratorium.",
+        "Mahasiswa tersebut berdiskusi dalam di ruang laboratorium.",
+        "Mahasiswa tersebut berdiskusi di dalamruang laboratorium.",
+        "b"
+    ),
+    createQuestion(
+        "Memengaruhi",
+        "Mempengaruhi",
+        "Mempegaruhi",
+        "Mempengarui",
+        "Memengaruhii",
         null
     ),
     createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
+        "Kami belajar bahasa Indonesia Di sekolah.",
+        "Kami belajar Bahasa Indonesia di sekolah.",
+        "Kami belajar bahasa indonesia di sekolah.",
+        "Kami belajar bahasa Indonesia di sekolah.",
+        "Kami belajar Bahasa indonesia di sekolah.",
+        "c"
+    ),
+    createQuestion(
+        "Oleh, karena itu mahasiswa harus lebih teliti dalam mengerjakan tugas.",
+        "Oleh karena itu mahasiswa, harus lebih teliti dalam mengerjakan tugas.",
+        "Oleh karena, itu mahasiswa harus lebih teliti dalam mengerjakan tugas.",
+        "Oleh karena itu mahasiswa harus, lebih teliti dalam mengerjakan tugas.",
+        "Oleh karena itu, mahasiswa harus lebih teliti dalam mengerjakan tugas.",
+        "d"
+    ),
+    createQuestion(
+        "Para mahasiswa diwajibkan untuk mengikuti kegiatan tersebut.",
+        "Para mahasiswa-mahasiswa diwajibkan mengikuti kegiatan tersebut.",
+        "Mahasiswa-mahasiswa diwajibkan untuk mengikuti kegiatan tersebut.",
+        "Para mahasiswa diwajibkan untuk mengikuti kegiatan tersebut oleh pihak kampus.",
+        "Para mahasiswa-mahasiswa diwajibkan untuk mengikuti kegiatan tersebut oleh pihak kampus.",
         null
     ),
     createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
+        "Dokter menghimbau pasien untuk menjaga pola hidup sehat.",
+        "Dokter menghimbau kepada pasien untuk menjaga pola hidup sehat.",
+        "Dokter meng-himbau pasien untuk menjaga pola hidup sehat.",
+        "Dokter mengimbau kepada pasien untuk menjaga pola hidup sehat.",
+        "Dokter mengimbau pasien untuk menjaga pola hidup sehat.",
+        "d"
+    ),
+    createQuestion(
+        "Meskipun penelitian tersebut memiliki keterbatasan, hasilnya tetap dapat digunakan sebagai referensi.",
+        "Meskipun penelitian tersebut memiliki keterbatasan, tetapi namun hasilnya tetap dapat digunakan.",
+        "Penelitian tersebut memiliki keterbatasan, meskipun tetapi hasilnya tetap dapat digunakan.",
+        "Meskipun penelitian tersebut memiliki keterbatasan tetapi, hasilnya tetap dapat digunakan sebagai referensi.",
+        "Meskipun penelitian tersebut memiliki keterbatasan, tetapi hasilnya tetap dapat digunakan sebagai referensi.",
         null
     ),
     createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
-        null
+        "Faktor yang memengaruhi kesehatan mental meliputi tekanan akademik, tidur yang kurang, dan mengalami masalah sosial.",
+        "Faktor yang memengaruhi kesehatan mental meliputi tekanan akademik, kurang tidur, dan masalah sosial.",
+        "Faktor yang memengaruhi kesehatan mental meliputi tekanan akademik, kurangnya tidur, dan mengalami masalah sosial.",
+        "Faktor yang memengaruhi kesehatan mental meliputi menekan akademik, kurang tidur, dan masalah sosial.",
+        "Faktor yang memengaruhi kesehatan mental meliputi menekan akademik, kurangnya tidur, dan mengalami masalah sosial.",
+        "a"
     ),
     createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
-        null
+        "Dalam penelitian tersebut, menemukan bahwa kualitas tidur berpengaruh terhadap konsentrasi mahasiswa.",
+        "Dalam penelitian tersebut menemukan bahwa kualitas tidur berpengaruh terhadap konsentrasi mahasiswa.",
+        "Penelitian tersebut, dalam menemukan bahwa kualitas tidur berpengaruh terhadap konsentrasi mahasiswa.",
+        "Penelitian tersebut menemukan bahwa kualitas tidur berpengaruh terhadap konsentrasi mahasiswa.",
+        "Dalam penelitian menemukan bahwa kualitas tidur berpengaruh terhadap konsentrasi mahasiswa.",
+        "c"
     ),
     createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
-        null
+        "Berdasarkan hasil penelitian, menunjukkan adanya peningkatan motivasi belajar siswa.",
+        "Hasil penelitian yang telah dilakukan oleh peneliti menunjukkan adanya peningkatan motivasi belajar siswa.",
+        "Berdasarkan hasil penelitian yang telah dilakukan oleh peneliti menunjukkan adanya peningkatan motivasi belajar siswa.",
+        "Hasil penelitian, yang telah dilakukan oleh peneliti menunjukkan adanya peningkatan motivasi belajar siswa.",
+        "Berdasarkan hasil penelitian yang dilakukan peneliti, menunjukkan adanya peningkatan motivasi belajar siswa.",
+        "a"
     ),
     createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
-        null
-    ),
-    createQuestion(
-        "Placeholder question",
-        "wrong",
-        "wrong",
-        "wrong",
-        "wrong",
-        null
+        "Berdasarkan uraian di atas, maka kesimpulannya adalah bahwa penggunaan media sosial yang berlebihan dapat menyebabkan terganggunya kualitas tidur pada remaja.",
+        "Berdasarkan uraian di atas, maka dapat disimpulkan bahwa penggunaan media sosial yang berlebihan dapat menyebabkan terganggunya kualitas tidur pada remaja.",
+        "Berdasarkan uraian di atas dapat disimpulkan bahwa penggunaan media sosial yang berlebihan dapat menyebabkan terganggunya kualitas tidur pada remaja.",
+        "Uraian di atas, maka dapat disimpulkan bahwa penggunaan media sosial yang berlebihan menyebabkan terganggunya kualitas tidur pada remaja.",
+        "Berdasarkan uraian di atas maka dapat disimpulkan bahwa penggunaan media sosial yang berlebihan dapat menyebabkan terganggunya kualitas tidur pada remaja.",
+        "b"
     ),
 ];
